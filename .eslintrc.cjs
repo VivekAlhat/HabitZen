@@ -12,5 +12,6 @@ module.exports = {
   ignorePatterns: ["*.config.js", "*.eslintrc.cjs"],
   rules: {
     "react-refresh/only-export-components": "warn",
+    "react/prop-types": 0,
   },
 };
