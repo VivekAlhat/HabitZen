@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { supabase } from "../supabase/client";
 import useToast from "../hooks/useToast";
+import Spinner from "./ui/Spinner";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -71,10 +72,17 @@ const Login = () => {
           required
         />
         <button
-          className="capitalize font-medium w-full bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg transition-colors duration-500"
+          className="capitalize font-medium w-full bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg transition-colors duration-500 inline-flex items-center justify-center gap-3"
           type="submit"
         >
-          {isSigningIn ? "Signing in ..." : "Sign in with email"}
+          {isSigningIn ? (
+            <>
+              <Spinner />
+              <p>Signing in</p>
+            </>
+          ) : (
+            "Sign in with email"
+          )}
         </button>
       </form>
       <div className="relative flex py-5 items-center w-full">
