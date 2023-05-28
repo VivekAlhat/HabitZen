@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { supabase } from "../supabase/client";
+import useToast from "../hooks/useToast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(false);
+
+  const toast = useToast();
 
   const REDIRECT_URL = import.meta.env.VITE_REDIRECT_URL;
 
@@ -14,43 +17,38 @@ const Login = () => {
 
   const handleSignInWithEmail = async (e) => {
     e.preventDefault();
-    try {
-      if (!email) {
-        return;
-      }
-      setIsSigningIn(true);
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: `${REDIRECT_URL}/dashboard`,
-        },
-      });
-
-      if (error) {
-        alert("An error occured");
-      } else {
-        alert("Please check your email for magic link");
-      }
-    } catch (error) {
-      alert("An error occured");
-    } finally {
-      setIsSigningIn(false);
+    if (!email) {
+      return;
     }
+
+    setIsSigningIn(true);
+
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: `${REDIRECT_URL}/dashboard`,
+      },
+    });
+
+    if (error) {
+      toast.error("Error", error.message);
+    } else {
+      toast.success("Success", "Please, check your email for the magic link");
+    }
+
+    setIsSigningIn(false);
   };
 
   const handleGoogleSignIn = async () => {
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: `${REDIRECT_URL}/dashboard`,
-        },
-      });
-      if (error) {
-        alert(`An error occured: ${error}`);
-      }
-    } catch (error) {
-      alert(`An error occured: ${error}`);
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${REDIRECT_URL}/dashboard`,
+      },
+    });
+
+    if (error) {
+      toast.error("Error", "Some error occured while signing you in");
     }
   };
 
