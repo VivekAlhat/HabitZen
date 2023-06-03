@@ -9,7 +9,7 @@ const Authentication = () => {
           alt={"Landing Image"}
           className="w-full h-screen object-cover hidden sm:block"
         />
-        <p className="absolute bottom-5 left-5 text-white">
+        <p className="absolute bottom-5 left-5 text-white hidden sm:block">
           Photo by&nbsp;
           <a
             href="https://unsplash.com/@fredmarriage?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
