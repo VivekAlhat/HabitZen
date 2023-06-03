@@ -54,10 +54,17 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-5 p-8 w-full lg:px-28 md:px-5">
+    <div className="flex flex-col items-center md:justify-center gap-5 px-6 w-full lg:px-16 xl:px-32">
       <div className="text-center flex flex-col gap-3">
-        <h1 className="font-bold text-3xl">HabitZen</h1>
-        <p className="text-gray-600 text-lg font-semibold">
+        <div className="flex items-center justify-center gap-2">
+          <img
+            src="/assets/habits.png"
+            alt="HabitZen Logo"
+            className="h-12 w-12"
+          />
+          <h1 className="font-bold text-3xl">HabitZen</h1>
+        </div>
+        <p className="text-gray-600 text-lg font-semibold md:text-sm lg:text-lg">
           Build Better Habits, One Day at a Time
         </p>
       </div>
@@ -98,6 +105,25 @@ const Login = () => {
         <AiOutlineGoogle className="w-6 h-6" />
         Google
       </button>
+      <div className="absolute bottom-5 md:right-10">
+        <a
+          target="_blank"
+          href="https://icons8.com/icon/iayrfUTeol0r/habits"
+          rel="noreferrer"
+          className="underline"
+        >
+          Habits&nbsp;
+        </a>
+        icon by&nbsp;
+        <a
+          target="_blank"
+          href="https://icons8.com"
+          rel="noreferrer"
+          className="underline"
+        >
+          Icons8
+        </a>
+      </div>
     </div>
   );
 };
