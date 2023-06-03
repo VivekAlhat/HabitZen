@@ -4,10 +4,12 @@ import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Authentication />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
+    <div className="w-full dark:bg-gray-700 dark:text-white transition-colors delay-100 ease-linear">
+      <Routes>
+        <Route path="/" element={<Authentication />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </div>
   );
 }
 

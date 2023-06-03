@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { supabase } from "../supabase/client";
+
 import useToast from "../hooks/useToast";
 import Spinner from "./ui/Spinner";
+import ThemeToggle from "./ui/ThemeToggle";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -55,6 +57,9 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center md:justify-center gap-5 px-6 w-full lg:px-16 xl:px-32">
+      <div className="absolute top-5 right-10">
+        <ThemeToggle />
+      </div>
       <div className="text-center flex flex-col gap-3">
         <div className="flex items-center justify-center gap-2">
           <img
@@ -64,14 +69,14 @@ const Login = () => {
           />
           <h1 className="font-bold text-3xl">HabitZen</h1>
         </div>
-        <p className="text-gray-600 text-lg font-semibold md:text-sm lg:text-lg">
+        <p className="text-gray-600 text-lg font-semibold md:text-sm lg:text-lg dark:text-white">
           Build Better Habits, One Day at a Time
         </p>
       </div>
       <hr className="w-full" />
       <form className="space-y-5 w-full" onSubmit={handleSignInWithEmail}>
         <input
-          className="border border-gray-400 py-2 px-4 w-full rounded-lg"
+          className="border border-gray-400 py-2 px-4 w-full rounded-lg text-black"
           type="email"
           placeholder="name@example.com"
           value={email}
@@ -79,7 +84,7 @@ const Login = () => {
           required
         />
         <button
-          className="capitalize font-medium w-full bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg transition-colors duration-500 inline-flex items-center justify-center gap-3"
+          className="capitalize font-medium w-full bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-white/80 hover:bg-gray-700 text-white py-2 px-4 rounded-lg transition-colors duration-500 inline-flex items-center justify-center gap-3"
           type="submit"
         >
           {isSigningIn ? (
@@ -93,13 +98,13 @@ const Login = () => {
         </button>
       </form>
       <div className="relative flex py-5 items-center w-full">
-        <div className="flex-grow border-t border-gray-800"></div>
+        <div className="flex-grow border-t border-gray-800 dark:border-white"></div>
         <span className="flex-shrink mx-4 capitalize">or continue with</span>
-        <div className="flex-grow border-t border-gray-800"></div>
+        <div className="flex-grow border-t border-gray-800 dark:border-white"></div>
       </div>
       <button
         type="button"
-        className="w-full border border-[#24292F] hover:bg-gray-800 hover:text-white transition-colors duration-500 font-medium rounded-lg px-5 py-2.5 inline-flex items-center justify-center gap-2"
+        className="w-full border border-[#24292F] dark:border-white dark:hover:bg-gray-50 text-black dark:text-white dark:hover:text-black hover:bg-gray-800 hover:text-white transition-colors duration-500 font-medium rounded-lg px-5 py-2.5 inline-flex items-center justify-center gap-2"
         onClick={handleGoogleSignIn}
       >
         <AiOutlineGoogle className="w-6 h-6" />

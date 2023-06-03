@@ -35,7 +35,7 @@ const ToastProvider = ({ children }) => {
 
   return (
     <ToastContext.Provider value={value}>
-      <ToastPrimitive.Provider swipeDirection="right">
+      <ToastPrimitive.Provider swipeDirection="right" duration={3000}>
         <ToastContainer toasts={state.toasts} />
         {children}
       </ToastPrimitive.Provider>
