@@ -4,7 +4,7 @@ import { supabase } from "../supabase/client";
 
 import useToast from "../hooks/useToast";
 import Spinner from "./ui/Spinner";
-import ThemeToggle from "./ui/ThemeToggle";
+import ThemeToggle from "./ThemeToggle";
 
 const Login = () => {
   const [email, setEmail] = useState("");

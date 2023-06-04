@@ -1,4 +1,4 @@
-import Toast from "./Toast";
+import Toast from "./ui/Toast";
 
 const ToastContainer = ({ toasts }) => {
   return (

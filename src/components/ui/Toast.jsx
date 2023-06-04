@@ -1,6 +1,7 @@
-import { AiFillCloseCircle } from "react-icons/ai";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import useToast from "../../hooks/useToast";
+
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const Toast = ({ title, content, type, id }) => {
   const toast = useToast();

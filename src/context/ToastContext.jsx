@@ -3,7 +3,7 @@ import { ToastReducer } from "../lib/reducers";
 import { v4 as uuidV4 } from "uuid";
 
 import * as ToastPrimitive from "@radix-ui/react-toast";
-import ToastContainer from "../components/ui/ToastContainer";
+import ToastContainer from "../components/ToastContainer";
 
 export const ToastContext = createContext();
 
