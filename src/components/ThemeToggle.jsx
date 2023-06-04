@@ -1,5 +1,5 @@
 import { BsSun, BsMoon } from "react-icons/bs";
-import useTheme from "../../hooks/useTheme";
+import useTheme from "../hooks/useTheme";
 
 const ThemeToggle = () => {
   const { theme, setTheme, isDark } = useTheme();
@@ -16,11 +16,11 @@ const ThemeToggle = () => {
     <div>
       {isDark ? (
         <BsMoon
-          className="h-7 w-7 cursor-pointer"
+          className="h-5 w-5 cursor-pointer"
           onClick={handleThemeChange}
         />
       ) : (
-        <BsSun className="h-7 w-7 cursor-pointer" onClick={handleThemeChange} />
+        <BsSun className="h-5 w-5 cursor-pointer" onClick={handleThemeChange} />
       )}
     </div>
   );
