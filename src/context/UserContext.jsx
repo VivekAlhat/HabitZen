@@ -8,7 +8,7 @@ const UserProvider = ({ children }) => {
   const toast = useToast();
 
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isUserLoading, setIsUserLoading] = useState(true);
 
   useEffect(() => {
     fetchActiveSession();
@@ -16,7 +16,7 @@ const UserProvider = ({ children }) => {
     const { data: listener } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setUser(session?.user);
-        setIsLoading(false);
+        setIsUserLoading(false);
 
         if (event === "SIGNED_OUT") {
           toast.success("Success", "You have successfully signed out");
@@ -32,12 +32,12 @@ const UserProvider = ({ children }) => {
     const activeSession = await supabase.auth.getSession();
     if (activeSession.data.session) {
       setUser(activeSession.data.session.user);
-      setIsLoading(false);
+      setIsUserLoading(false);
     }
   };
 
   return (
-    <UserContext.Provider value={{ user, isLoading }}>
+    <UserContext.Provider value={{ user, isUserLoading }}>
       {children}
     </UserContext.Provider>
   );
