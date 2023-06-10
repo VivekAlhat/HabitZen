@@ -58,7 +58,7 @@ const Dashboard = () => {
                   return (
                     <div
                       key={id}
-                      className="p-5 border border-gray-100 dark:border-none dark:bg-black/20 rounded-lg space-y-3"
+                      className="p-5 border border-gray-100 dark:border-none dark:bg-black/10 rounded-lg space-y-3"
                     >
                       <h3 className="text-lg">{name}</h3>
                       <p>

@@ -19,7 +19,7 @@ const PrivateRoute = () => {
   return user ? (
     <Outlet />
   ) : (
-    <Navigate to="/" replace state={{ path: location.pathname }} />
+    <Navigate to="/signin" replace state={{ path: location.pathname }} />
   );
 };
 

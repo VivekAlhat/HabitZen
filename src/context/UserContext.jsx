@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { supabase } from "../supabase/client";
+
 import useToast from "../hooks/useToast";
 
 export const UserContext = createContext();
@@ -20,7 +21,10 @@ const UserProvider = ({ children }) => {
           setIsUserLoading(false);
         } else if (event === "SIGNED_OUT") {
           setUser(null);
+          setIsUserLoading(false);
           toast.success("Success", "You have successfully signed out");
+        } else {
+          setIsUserLoading(false);
         }
       }
     );

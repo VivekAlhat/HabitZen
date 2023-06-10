@@ -7,7 +7,8 @@ const Authentication = () => {
         <img
           src={"/assets/plants.jpg"}
           alt={"Landing Image"}
-          className="w-full h-screen object-cover hidden sm:block"
+          className="h-screen object-cover hidden sm:block"
+          loading="lazy"
         />
         <p className="absolute bottom-5 left-5 text-white hidden sm:block">
           Photo by&nbsp;
