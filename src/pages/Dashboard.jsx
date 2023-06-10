@@ -2,18 +2,20 @@ import useUser from "../hooks/useUser";
 import useToast from "../hooks/useToast";
 import Navbar from "../components/Navbar";
 import moment from "moment";
-
+import Welcome from "../components/Welcome";
+import DataLoader from "../components/DataLoader";
+import { getUserNameFromEmail } from "../lib/functions";
 import { supabase } from "../supabase/client";
 import { useQuery } from "react-query";
 import { useState } from "react";
-import Welcome from "../components/Welcome";
-import DataLoader from "../components/DataLoader";
 
 const Dashboard = () => {
   const toast = useToast();
   const { user, isUserLoading } = useUser();
-
   const [habits, setHabits] = useState([]);
+
+  const username =
+    user?.user_metadata.name || getUserNameFromEmail(user?.email);
 
   const fetchUserHabits = async () => {
     const { data, error } = await supabase.from("habits").select("*");
@@ -44,11 +46,10 @@ const Dashboard = () => {
         <DataLoader loadingText={"Loading your profile..."} />
       ) : (
         <div className="flex flex-col gap-5 flex-1">
-          <Welcome name={user?.user_metadata.name} />
-          <hr className="dark:border dark:border-black/30" />
+          <Welcome name={username} />
           <>
             {isFetchingHabits ? (
-              <DataLoader loadingText={"Gathering your habit data..."} />
+              <DataLoader loadingText={"Preparing your dashboard..."} />
             ) : habits?.length > 0 ? (
               <div className="flex flex-col gap-3">
                 {habits.map((habit) => {
@@ -68,7 +69,7 @@ const Dashboard = () => {
                 })}
               </div>
             ) : (
-              <div className="flex flex-col flex-1 items-center justify-center gap-3 border border-gray-200 dark:border-none rounded-lg h-[450px] dark:bg-black/20">
+              <div className="flex flex-col flex-1 items-center justify-center gap-3 rounded-lg h-[450px]">
                 <p className="text-center">
                   Not tracking any habits yet? <br />
                   Click below to start your first habit

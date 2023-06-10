@@ -8,4 +8,11 @@ const daysOfYear = eachDayOfInterval({
   return { date: moment(entry).format("yyyy-MM-DD"), count: 6, level: 1 };
 });
 
-export { daysOfYear };
+const getUserNameFromEmail = (email) => {
+  if (email) {
+    const data = email.split("@");
+    return data.at(0);
+  }
+};
+
+export { daysOfYear, getUserNameFromEmail };
