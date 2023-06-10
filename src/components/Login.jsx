@@ -78,9 +78,11 @@ const Login = () => {
         <input
           className="border border-gray-400 py-2 px-4 w-full rounded-lg text-black"
           type="email"
+          name="email"
           placeholder="name@example.com"
           value={email}
           onChange={handleEmailChange}
+          autoComplete="true"
           required
         />
         <button

@@ -15,10 +15,11 @@ const UserProvider = ({ children }) => {
 
     const { data: listener } = supabase.auth.onAuthStateChange(
       (event, session) => {
-        setUser(session?.user);
-        setIsUserLoading(false);
-
-        if (event === "SIGNED_OUT") {
+        if (event === "SIGNED_IN") {
+          setUser(session?.user);
+          setIsUserLoading(false);
+        } else if (event === "SIGNED_OUT") {
+          setUser(null);
           toast.success("Success", "You have successfully signed out");
         }
       }

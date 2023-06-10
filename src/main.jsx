@@ -17,8 +17,8 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
         <ThemeProvider>
           <ToastProvider>
             <UserProvider>
@@ -28,8 +28,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             </UserProvider>
           </ToastProvider>
         </ThemeProvider>
-        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-      </QueryClientProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+    </QueryClientProvider>
   </React.StrictMode>
 );

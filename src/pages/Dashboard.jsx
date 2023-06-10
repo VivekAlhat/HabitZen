@@ -1,9 +1,10 @@
+import moment from "moment";
 import useUser from "../hooks/useUser";
 import useToast from "../hooks/useToast";
 import Navbar from "../components/Navbar";
-import moment from "moment";
 import Welcome from "../components/Welcome";
 import DataLoader from "../components/DataLoader";
+
 import { getUserNameFromEmail } from "../lib/functions";
 import { supabase } from "../supabase/client";
 import { useQuery } from "react-query";

@@ -16,7 +16,7 @@ const AvatarContextMenu = ({ username }) => {
       alert("Some error occured while signing out");
       return;
     }
-    navigate("/");
+    navigate("/signin");
   };
 
   return (
