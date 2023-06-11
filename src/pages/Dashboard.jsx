@@ -1,9 +1,9 @@
-import moment from "moment";
 import useUser from "../hooks/useUser";
 import useToast from "../hooks/useToast";
 import Navbar from "../components/Navbar";
 import Welcome from "../components/Welcome";
 import DataLoader from "../components/DataLoader";
+import HabitCard from "../components/HabitCard";
 
 import { getUserNameFromEmail } from "../lib/functions";
 import { supabase } from "../supabase/client";
@@ -54,19 +54,7 @@ const Dashboard = () => {
             ) : habits?.length > 0 ? (
               <div className="flex flex-col gap-3">
                 {habits.map((habit) => {
-                  const { id, created_at, name } = habit;
-                  return (
-                    <div
-                      key={id}
-                      className="p-5 border border-gray-100 dark:border-none dark:bg-black/10 rounded-lg space-y-3"
-                    >
-                      <h3 className="text-lg">{name}</h3>
-                      <p>
-                        Tracking since :&nbsp;
-                        {moment(created_at).format("Do MMMM YYYY")}
-                      </p>
-                    </div>
-                  );
+                  return <HabitCard key={habit.id} habit={habit} />;
                 })}
               </div>
             ) : (
