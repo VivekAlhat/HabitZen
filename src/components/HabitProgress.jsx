@@ -10,6 +10,10 @@ import {
 const daysLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const HabitProgress = () => {
+  /**
+   * TODO: Display data from database instead of placeholder
+   */
+
   const today = startOfToday();
 
   const daysInCurrWeek = eachDayOfInterval({
