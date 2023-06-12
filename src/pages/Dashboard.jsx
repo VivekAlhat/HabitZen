@@ -40,7 +40,7 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="container mx-auto flex flex-col h-screen p-5">
+    <div className="container mx-auto flex flex-col min-h-screen p-5">
       <Navbar />
       <span className="my-3" />
       {isUserLoading ? (
